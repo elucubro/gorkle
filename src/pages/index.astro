@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Header from '../components/Header.svelte'
+import DesktopForm from '../components/DesktopForm.svelte'
+import MobileForm from '../components/MobileForm.svelte'
+import Timer from '../components/Timer.svelte'
 ---
 
 <Layout title="gorkle">
@@ -9,33 +12,24 @@ import Header from '../components/Header.svelte'
 		
 		<Header client:load/>
 		<div class="bg-transparent h-12 w-full"></div>
-		<section id="landing" class="h-full lg:grid lg:grid-cols-2 w-full flex-col border-solid border-black border-b-1 lg:pt-0 pt-5 px-5  box-border flex justify-between">
-			<div class="flex flex-col gap-5 justify-between lg:justify-center h-full ">
-			<h1 class="text-8xl hidden font-medium ">250/mo</h1>
-			<h1 class="text-5xl lg:mt-auto font-medium">Small Business websites for small business budgets.</h1>
-			<h2 class="text-lg font-mdeium">We believe that a good website is a core part of a businesses success, and that they shouldn't be limited to those with massive budgets.</h2>
-			<div class="lg:flex flex-col lg:flex-row gap-3  hidden">
-				<input type=email class="h-12 px-5 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 border-black border-2 bg-background border-solid rounded-xl " placeholder="Enter your email!">
-				<button class="h-12 lg:px-6 grid justify-center items-center bg-secondary text-xl border-2 border-solid border-black rounded-2xl">Join The Waitlist</button>
-				<button class="h-12 lg:px-6 grid justify-center items-center bg-primary text-xl border-2 border-solid border-black rounded-2xl">Contact Us</button>
-			</div>
-			<div class="mt-auto">
-			<h1 class="text-9xl font-medium hidden lg:block" style="line-height: 3.75rem; font-size: 3.5rem;">250AUD/mo</h1>
-		    </div>
+		<section id="landing" class="h-full lg:grid lg:grid-cols-2 w-full flex-col border-solid border-black border-b-1 lg:pt-0 py-16 px-5  box-border flex justify-between">
+			<div class="flex flex-col gap-5 lg:justify-center h-full ">
+			<h1 class="text-5xl font-medium">Small business websites for small business budgets.</h1>
+			<h2 class="text-lg font-mdeium">We believe that a good website is a core part of a businesses success, and that they shouldn't be limited to those with massive budgets.<br><br>Which is why we only start at 250AUD/month</h2>
+			<DesktopForm client:load/>
 			</div>
 			
-			<div class="my-auto lg:m-0 lg:hidden">
-				<h3 class="text-sm  text-slate-400">starting from:</h3>
-				<h2 class=" text-black font-medium" style="line-height: 3.75rem; font-size: 3.5rem;" >250AUD/mo</h2>
+			<div class="my-auto lg:hidden">
+				<MobileForm client:load/>
 
 			</div>
 
-			<div class="flex lg:hidden flex-col lg:flex-row gap-3 pb-5 lg:pb-0">
-				<button class="h-12 lg:px-6 grid justify-center items-center bg-secondary text-xl border-2 border-solid border-black rounded-2xl">Join The Waitlist</button>
-				<button class="h-12 lg:px-6 grid justify-center items-center bg-primary text-xl border-2 border-solid border-black rounded-2xl">Contact Us</button>
-
+			
+	
+			<div class="flex-col hidden lg:flex w-full h-screen justify-center items-center">
+				<Timer client:load/>
+				
 			</div>
-
 		</section>
 	</main>
 </Layout>
